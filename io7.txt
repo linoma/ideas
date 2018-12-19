@@ -1,0 +1,166 @@
+10004DISPSTAT		Interrupts and Status	0001V-Blank flag	0002H-Blank flag	0004V-Counter flag	0008V-Blank IRQ Enable	0010H-Blank IRQ Enable	0020V-Counter IRQ Enable	FF00V-Count Setting
+10006VCOUNT			Vertical Counter	01FFCurrent scanline
+200B0DMA0SAD		DMA 0 Source Address	07FFFFFFSource Address
+200B4DMA0DAD		DMA 0 Destination Address	07FFFFFFDestination Address
+200B8DMA0CNT		DMA 0 Word Count	00003FFFCount	00600000Dest.Addr.Control	01800000Src.Addr.Control	02000000Repeat	04000000Transfer Type	30000000Start	40000000IRQ Enable	80000000DMA Enable
+200BCDMA1SAD		DMA 1 Source Address	07FFFFFFSource Address
+200C0DMA1DAD		DMA 1 Destination Address	07FFFFFFDestination Address
+200C4DMA1CNT		DMA 1 Word Count	00003FFFCount	00600000Dest.Addr.Control	01800000Src.Addr.Control	02000000Repeat	04000000Transfer Type	30000000Start	40000000IRQ Enable	80000000DMA Enable
+200C8DMA2SAD		DMA 2 Source Address	07FFFFFFSource Address
+200CCDMA2DAD		DMA 2 Destination Address	07FFFFFFDestination Address
+200D0DMA2CNT		DMA 2 Word Count	00003FFFCount	00600000Dest.Addr.Control	01800000Src.Addr.Control	02000000Repeat	04000000Transfer Type	30000000Start	40000000IRQ Enable	80000000DMA Enable
+200D4DMA3SAD		DMA 3 Source Address	07FFFFFFSource Address
+200D8DMA3DAD		DMA 3 Destination Address	07FFFFFFDestination Address
+200DCDMA3CNT		DMA 3 Word Count	0000FFFFCount	00600000Dest.Addr.Control	01800000Src.Addr.Control	02000000Repeat	04000000Transfer Type	30000000Start	40000000IRQ Enable	80000000DMA Enable
+10100TM0D			Timer 0 Counter/Reload	FFFFTimer Counter
+10102TM0CNT			Timer 0 Control	0003Prescaler Selection	0004Count-up Timing	0040Timer IRQ Enable	0080Timer Start/Stop
+10104TM1D			Timer 1 Counter/Reload	FFFFTimer Counter
+10106TM1CNT			Timer 1 Control	0003Prescaler Selection	0004Count-up Timing	0040Timer IRQ Enable	0080Timer Start/Stop
+10108TM2D			Timer 2 Counter/Reload	FFFFTimer Counter
+1010ATM2CNT			Timer 2 Control	0003Prescaler Selection	0004Count-up Timing	0040Timer IRQ Enable	0080Timer Start/Stop
+1010CTM3D			Timer 3 Counter/Reload	FFFFTimer Counter
+1010ETM3CNT			Timer 3 Control	0003Prescaler Selection	0004Count-up Timing	0040Timer IRQ Enable	0080Timer Start/Stop
+10136EXTKEYIN	Key X/Y Input	0001Button X	0002Button Y	0008Debug Button	0040Pen down	0080Hinge/folded
+10138RTC	Real Time Clock Register	0001Data I/O	0002Clock Out	0004Select Out	0010Data Direction	0020Clock Direction	0040Select Direction
+20180IPCSYNC	IPC Synchronize Register	0000000FData input from IPCSYNC	00000F00Data output to IPCSYNC	00002000Send IRQ to remote CPU	00004000Enable IRQ from remote CPU
+20184IPCFIFOCNT	IPC Fifo Control Register	00000001Send Fifo Empty Status	00000002Send Fifo Full Status	00000004Send Fifo Empty IRQ	00000008Send Fifo Clear	00000100Receive Fifo Empty	00000200Receive Fifo Full	00000400Receive Fifo Not Empty IRQ	00004000Error, Read Empty/Send Full	00008000Enable Send/Receive Fifo
+20188IPCFIFOSEND	IPC Send Fifo	FFFFFFFFSend Fifo Data
+101A0AUXSPICNT	Gamecard ROM and SPI Control	0003SPI Baudrate	0040SPI Hold Chipselect	0080SPI Busy	2000NDS Slot Mode	4000Transfer Ready IRQ	8000NDS Slot Enable
+101A2AUXSPIDATA	Gamecard SPI Bus Data/Strobe	00FFData
+201A4ROMCTRL	Gamecard Bus ROMCTRL	00001FFFKEY lenght part1	00002000KEY Encrypt data	00004000SE	00008000KEY2 Apply Seed	003F0000KEY1 Lenght Part 2	00400000KEY2 Encrypt Command	00800000Data Word Status	07000000Data Block Size	08000000Transfer CLK rate	10000000 Secure Area Mode	20000000RESB	40000000WR	80000000 Block Start/Status
+101C0SPICNT	SPI Bus Control/Status Register	0003 Baudrate	0080Busy Flag	0300Device Select	1000Transfer Size	2000Chipselect Hold	4000Interrupt Request	8000SPI Bus Enable
+101C2SPIDATA	SPI Bus Data/Strobe Register	00FFData
+10204EXMEMCNT	External Memory Control	000332-pin GBA Slot SRAM Access Time	000C32-pin GBA Slot ROM 1st Access Time	001032-pin GBA Slot 2nd Access Time	006032-pin GBA Slot PHI-pin out	008032-pin GBA Slot Access Rights	080017-pin NDS Slot Access Rights	4000Main Memory Interface Mode Switch	8000Main Memory Access Priority
+10208IME			Interrupt Master Enable Register	0001Disable all interrupts
+20210IE				Interrupt Enable Register	00000001LCD V-Blank	00000002LCD H-Blank	00000004LCD V-Counter Match	00000008Timer 0 Overflow	00000010Timer 1 Overflow	00000020Timer 2 Overflow	00000040Timer 3 Overflow	00000080SIO/RCNT/RTC (Real Time Clock)	00000100DMA 0	00000200DMA 1	00000400DMA 2	00000800DMA 3	00001000Keypad	00002000Game Pak	00010000IPC Sync	00020000IPC Send FIFO Empty	00040000IPC Recv FIFO Not Empty	00080000Game Card Data Transfer	00100000Game Card IREQ_MC	00400000Screens unfolding	00800000SPI bus	01000000Wifi
+20214IF				Interrupt Request Flags / IRQ Acknowledge	00000001LCD V-Blank	00000002LCD H-Blank	00000004LCD V-Counter Match	00000008Timer 0 Overflow	00000010Timer 1 Overflow	00000020Timer 2 Overflow	00000040Timer 3 Overflow	00000080SIO/RCNT/RTC (Real Time Clock)	00000100DMA 0	00000200DMA 1	00000400DMA 2	00000800DMA 3	00001000Keypad	00002000Game Pak	00010000IPC Sync	00020000IPC Send FIFO Empty	00040000IPC Recv FIFO Not Empty	00080000Game Card Data Transfer	00100000Game Card IREQ_MC	00400000Screens unfolding	00800000SPI bus	01000000Wifi
+00240VRAMSTAT 		VRAM Bank Status	01VRAM C Enabled and allocated to NDS7	02VRAM D Enabled and allocated to NDS7
+00300POSTFLG		Post Boot Flag	01Post Boot Flag	02Bit1
+20400SOUND0CNT		Sound Channel 0 Control Register	0000007FVolume	00000300Data Shift	00008000Hold	007F0000Panning	07000000Wave Duty	18000000Repeat Mode	60000000Format	80000000Start/Status
+20404SOUND0SAD		Sound Channel 0 Data Source Register	07FFFFFFSource Address
+10408SOUND0TMR		Sound Channel 0 Timer Register	FFFFTimer Value
+1040ASOUND0PNT		Sound Channel 0 Loopstart Register	FFFFLoop Start, Sample loop start position
+2040CSOUND0LEN		Sound Channel 0 Length Register	003FFFFFSound length
+20410SOUND1CNT		Sound Channel 1 Control Register	0000007FVolume	00000300Data Shift	00008000Hold	007F0000Panning	07000000Wave Duty	18000000Repeat Mode	60000000Format	80000000Start/Status
+20414SOUND1SAD		Sound Channel 1 Data Source Register	07FFFFFFSource Address
+10418SOUND1TMR		Sound Channel 1 Timer Register	FFFFTimer Value
+1041ASOUND1PNT		Sound Channel 1 Loopstart Register	FFFFLoop Start, Sample loop start position
+2041CSOUND1LEN		Sound Channel 1 Length Register	003FFFFFSound length
+20420SOUND2CNT		Sound Channel 2 Control Register	0000007FVolume	00000300Data Shift	00008000Hold	007F0000Panning	07000000Wave Duty	18000000Repeat Mode	60000000Format	80000000Start/Status
+20424SOUND2SAD		Sound Channel 2 Data Source Register	07FFFFFFSource Address
+10428SOUND2TMR		Sound Channel 2 Timer Register	FFFFTimer Value
+1042ASOUND2PNT		Sound Channel 2 Loopstart Register	FFFFLoop Start, Sample loop start position
+2042CSOUND2LEN		Sound Channel 2 Length Register	003FFFFFSound length
+20430SOUND3CNT		Sound Channel 3 Control Register	0000007FVolume	00000300Data Shift	00008000Hold	007F0000Panning	07000000Wave Duty	18000000Repeat Mode	60000000Format	80000000Start/Status
+20434SOUND3SAD		Sound Channel 3 Data Source Register	07FFFFFFSource Address
+10438SOUND3TMR		Sound Channel 3 Timer Register	FFFFTimer Value
+1043ASOUND3PNT		Sound Channel 3 Loopstart Register	FFFFLoop Start, Sample loop start position
+2043CSOUND3LEN		Sound Channel 3 Length Register	003FFFFFSound length
+20440SOUND4CNT		Sound Channel 4 Control Register	0000007FVolume	00000300Data Shift	00008000Hold	007F0000Panning	07000000Wave Duty	18000000Repeat Mode	60000000Format	80000000Start/Status
+20444SOUND4SAD		Sound Channel 4 Data Source Register	07FFFFFFSource Address
+10448SOUND4TMR		Sound Channel 4 Timer Register	FFFFTimer Value
+1044ASOUND4PNT		Sound Channel 4 Loopstart Register	FFFFLoop Start, Sample loop start position
+2044CSOUND4LEN		Sound Channel 4 Length Register	003FFFFFSound length
+20450SOUND5CNT		Sound Channel 5 Control Register	0000007FVolume	00000300Data Shift	00008000Hold	007F0000Panning	07000000Wave Duty	18000000Repeat Mode	60000000Format	80000000Start/Status
+20454SOUND5SAD		Sound Channel 5 Data Source Register	07FFFFFFSource Address
+10458SOUND5TMR		Sound Channel 5 Timer Register	FFFFTimer Value
+1045ASOUND5PNT		Sound Channel 5 Loopstart Register	FFFFLoop Start, Sample loop start position
+2045CSOUND5LEN		Sound Channel 5 Length Register	003FFFFFSound length
+20460SOUND6CNT		Sound Channel 6 Control Register	0000007FVolume	00000300Data Shift	00008000Hold	007F0000Panning	07000000Wave Duty	18000000Repeat Mode	60000000Format	80000000Start/Status
+20464SOUND6SAD		Sound Channel 6 Data Source Register	07FFFFFFSource Address
+10468SOUND6TMR		Sound Channel 6 Timer Register	FFFFTimer Value
+1046ASOUND6PNT		Sound Channel 6 Loopstart Register	FFFFLoop Start, Sample loop start position
+2046CSOUND6LEN		Sound Channel 6 Length Register	003FFFFFSound length
+20470SOUND7CNT		Sound Channel 7 Control Register	0000007FVolume	00000300Data Shift	00008000Hold	007F0000Panning	07000000Wave Duty	18000000Repeat Mode	60000000Format	80000000Start/Status
+20474SOUND7SAD		Sound Channel 7 Data Source Register	07FFFFFFSource Address
+10478SOUND7TMR		Sound Channel 7 Timer Register	FFFFTimer Value
+1047ASOUND7PNT		Sound Channel 7 Loopstart Register	FFFFLoop Start, Sample loop start position
+2047CSOUND7LEN		Sound Channel 7 Length Register	003FFFFFSound length
+20480SOUND8CNT		Sound Channel 8 Control Register	0000007FVolume	00000300Data Shift	00008000Hold	007F0000Panning	07000000Wave Duty	18000000Repeat Mode	60000000Format	80000000Start/Status
+20484SOUND8SAD		Sound Channel 8 Data Source Register	07FFFFFFSource Address
+10488SOUND8TMR		Sound Channel 8 Timer Register	FFFFTimer Value
+1048ASOUND8PNT		Sound Channel 8 Loopstart Register	FFFFLoop Start, Sample loop start position
+2048CSOUND8LEN		Sound Channel 8 Length Register	003FFFFFSound length
+20490SOUND9CNT		Sound Channel 9 Control Register	0000007FVolume	00000300Data Shift	00008000Hold	007F0000Panning	07000000Wave Duty	18000000Repeat Mode	60000000Format	80000000Start/Status
+20494SOUND9SAD		Sound Channel 9 Data Source Register	07FFFFFFSource Address
+10498SOUND9TMR		Sound Channel 9 Timer Register	FFFFTimer Value
+1049ASOUND9PNT		Sound Channel 9 Loopstart Register	FFFFLoop Start, Sample loop start position
+2049CSOUND9LEN		Sound Channel 9 Length Register	003FFFFFSound length
+204A0SOUND10CNT		Sound Channel 10 Control Register	0000007FVolume	00000300Data Shift	00008000Hold	007F0000Panning	07000000Wave Duty	18000000Repeat Mode	60000000Format	80000000Start/Status
+204A4SOUND10SAD		Sound Channel 10 Data Source Register	07FFFFFFSource Address
+104A8SOUND10TMR		Sound Channel 10 Timer Register	FFFFTimer Value
+104AASOUND10PNT		Sound Channel 10 Loopstart Register	FFFFLoop Start, Sample loop start position
+204ACSOUND10LEN		Sound Channel 10 Length Register	003FFFFFSound length
+204B0SOUND11CNT		Sound Channel 11 Control Register	0000007FVolume	00000300Data Shift	00008000Hold	007F0000Panning	07000000Wave Duty	18000000Repeat Mode	60000000Format	80000000Start/Status
+204B4SOUND11SAD		Sound Channel 11 Data Source Register	07FFFFFFSource Address
+104B8SOUND11TMR		Sound Channel 11 Timer Register	FFFFTimer Value
+104BASOUND11PNT		Sound Channel 11 Loopstart Register	FFFFLoop Start, Sample loop start position
+204BCSOUND11LEN		Sound Channel 11 Length Register	003FFFFFSound length
+204C0SOUND12CNT		Sound Channel 12 Control Register	0000007FVolume	00000300Data Shift	00008000Hold	007F0000Panning	07000000Wave Duty	18000000Repeat Mode	60000000Format	80000000Start/Status
+204C4SOUND12SAD		Sound Channel 12 Data Source Register	07FFFFFFSource Address
+104C8SOUND12TMR		Sound Channel 12 Timer Register	FFFFTimer Value
+104CASOUND12PNT		Sound Channel 12 Loopstart Register	FFFFLoop Start, Sample loop start position
+204CCSOUND12LEN		Sound Channel 12 Length Register	003FFFFFSound length
+204D0SOUND13CNT		Sound Channel 13 Control Register	0000007FVolume	00000300Data Shift	00008000Hold	007F0000Panning	07000000Wave Duty	18000000Repeat Mode	60000000Format	80000000Start/Status
+204D4SOUND13SAD		Sound Channel 13 Data Source Register	07FFFFFFSource Address
+104D8SOUND13TMR		Sound Channel 13 Timer Register	FFFFTimer Value
+104DASOUND13PNT		Sound Channel 13 Loopstart Register	FFFFLoop Start, Sample loop start position
+204DCSOUND13LEN		Sound Channel 13 Length Register	003FFFFFSound length
+204E0SOUND14CNT		Sound Channel 14 Control Register	0000007FVolume	00000300Data Shift	00008000Hold	007F0000Panning	07000000Wave Duty	18000000Repeat Mode	60000000Format	80000000Start/Status
+204E4SOUND14SAD		Sound Channel 14 Data Source Register	07FFFFFFSource Address
+104E8SOUND14TMR		Sound Channel 14 Timer Register	FFFFTimer Value
+104EASOUND14PNT		Sound Channel 14 Loopstart Register	FFFFLoop Start, Sample loop start position
+204ECSOUND14LEN		Sound Channel 14 Length Register	003FFFFFSound length
+204F0SOUND15CNT		Sound Channel 15 Control Register	0000007FVolume	00000300Data Shift	00008000Hold	007F0000Panning	07000000Wave Duty	18000000Repeat Mode	60000000Format	80000000Start/Status
+204F4SOUND15SAD		Sound Channel 15 Data Source Register	07FFFFFFSource Address
+104F8SOUND15TMR		Sound Channel 15 Timer Register	FFFFTimer Value
+104FASOUND15PNT		Sound Channel 15 Loopstart Register	FFFFLoop Start, Sample loop start position
+204FCSOUND15LEN		Sound Channel 15 Length Register	003FFFFFSound length
+604100000IPCFIFORECV	IPC Receive Fifo	FFFFFFFFReceive Fifo Data
+504800000W_ID	Wifi Chip ID	FFFFChip ID
+504800004W_MODE_RST	 Wifi Hardware mode / reset	8000Reset
+504800006W_MODE_WEP	Wifi Software mode / Wep mode	0007Software mode	0038WEP mode
+504800010W_IF	Wifi Interrupt Request Flags	0001Receive Complete	0002Transmit Complete	0004Receive Count Up	0008Transmit error	0010Statistics Count Overflow	0020Statistics Ack Count Overflow	0040Start Receive	0080Start Transmit	0800RF Wakeup	4000Beacon Timeslot	8000Pre Beacon Timeslot
+504800012W_IE	Wifi Interrupt Enable Flags	0001Receive Complete	0002Transmit Complete	0004Receive Count Up	0008Transmit error	0010Statistics Count Overflow	0020Statistics Ack Count Overflow	0040Start Receive	0080Start Transmit	0800RF Wakeup	4000Beacon Timeslot	8000Pre Beacon Timeslot
+504800018W_MACADDR_0	Mac Address	FFFFAddress
+50480001AW_MACADDR_1	Mac Address	FFFFAddress
+50480001CW_MACADDR_2	Mac Address	FFFFAddress
+504800020W_BSSID_0	BSSID	FFFFBSSID
+504800022W_BSSID_1	BSSID	FFFFBSSID
+504800024W_BSSID_2	BSSID	FFFFBSSID
+504800030W_RXCNT	Wifi Receive Control	0001Latch registers	8000Enable Queuing
+504800032W_WEP_CNT	WEP Engine Enable	8000Engine Enable
+504800036W_POWER_US		0001Disable W_US_COUNT and W_BBSIO-registers
+504800038W_POWER_TX		
+50480003CW_POWERSTATE		0200Current power state
+504800040W_POWERFORCE	Force Power State
+504800044W_RANDOM	Random Generator	07FFRandom
+504800050W_BUF_RD_BEGIN	Wifi RX Fifo start location	FFFFByte offset in WiFi Memory
+504800052W_BUF_RD_END	Wifi RX Fifo end location	FFFFByte offset in WiFi Memory
+504800056W_WRITECSRLATCH	Wifi RX Fifo Write Cursor Latch value	0FFFHalfword Address in RAM
+504800058W_BUF_RD_ADDR	Wifi CircBuf Read Address	1FFEHalfword Address in RAM
+50480005AW_RXREADCSR	Wifi RX Fifo Read or "start" cursor	0FFFHalfword Address in RAM
+504800060W_BUF_RD_DATA	Wifi CircBuf Read Data	FFFFData
+504800068W_BUF_WR_ADDR	Wifi CircBuf Write Address	1FFEHalfword Address in RAM
+504800070W_BUF_WR_DATA	Wifi CircBuf Write Data	FFFFData
+504800074W_BUF_WR_END	Wifi CircBuf Write Top	1FFEHalfword Address in RAM
+504800076W_BUF_WR_SKIP	Wifi CircBuf Write Offset from Top to Bottom	0FFFHalfword Offset
+504800080W_BEACONTRANS	Beacon Transmit Location	0FFFHalfword Address of TX Frame Header in RAM	8000Enable Record
+5048000A0W_TXLOC1	Transmit location 1	0FFFHalfword Address of TX Frame Header in RAM	8000Enable Record
+5048000A4W_TXLOC2	Transmit location 2	0FFFHalfword Address of TX Frame Header in RAM	8000Enable Record
+5048000A8W_TXLOC3	Transmit location 3	0FFFHalfword Address of TX Frame Header in RAM	8000Enable Record
+5048000AEW_TXCNT	Transmit Control/Enable	0001Send Packet specified in W_TXLOC1	0004Send Packet specified in W_TXLOC2	0008Send Packet specified in W_TXLOC3
+5048000E8W_US_COUNTCNT	Microsecond counter enable	0001Counter Enable
+5048000EAW_US_COMPARECNT	Microsecond compare enable	0001Compare Enable
+5048000F0W_US_COMPARE0	Microsecond compare	FC00Compare Value
+5048000F2W_US_COMPARE1	Microsecond compare	FFFFCompare Value
+5048000F4W_US_COMPARE2	Microsecond compare	FFFFCompare Value
+5048000F6W_US_COMPARE3	Microsecond compare	FFFFCompare Value
+5048000F8W_US_COUNT0	Microsecond counter	FFFFCounter Value
+5048000FAW_US_COUNT1	Microsecond counter	FFFFCounter Value
+5048000FCW_US_COUNT2	Microsecond counter	FFFFCounter Value
+5048000FEW_US_COUNT3	Microsecond counter	FFFFCounter Value
+504800158W_BBSIOCNT	Baseband serial transfer control	00FFIndex	F000Direction
+50480015AW_BBSIOWRITE	Baseband serial write data	00FFData to be sent to chip
+50480015CW_BBSIOREAD	Baseband serial read data	00FFData received from chip
+50480015EW_BBSIOBUSY	Baseband serial busy flag	0001Transfer Busy

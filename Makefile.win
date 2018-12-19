@@ -1,0 +1,627 @@
+#################################################################
+## This Makefile Exported by MinGW Developer Studio
+## Copyright (c) 2002-2004 by Parinya Thipchart
+#################################################################
+
+ifneq (,$(findstring Release, $(CFG)))
+  override CFG = Release
+else
+  override CFG = Debug
+endif
+
+PROJECT = ideas
+CC = "F:\Mingw\bin\g++.exe"
+ASM = "F:\Mingw\bin\nasmw.exe"
+WINDRES = "$(COMPILER_BIN)windres.exe"
+
+ifeq ($(CFG),Debug)
+  OBJ_DIR = Debug
+  OUTPUT_DIR = Debug
+  TARGET = ideas.exe
+  C_INCLUDE_DIRS = -I"3d" -I"cpu" -I"cpu/arm7" -I"cpu/arm9" -I"ext" -I"fat" -I"gfx" -I"zip" -I"d:/zlib" -I"sound" -I"d:/ideas" -I"debug" -I"../Mingw/include" 
+  C_PREPROC = -D_WIN32_IE=0x400 -D_DEBUG 
+  CFLAGS = -pipe -mwin32 -Wall -g2 -O0 -frtti -fexceptions 
+  RC_INCLUDE_DIRS = --include-dir "../Mingw/include" 
+  RC_PREPROC = 
+  RCFLAGS = 
+  LIB_DIRS = -L"d:/zlib" -L"../Mingw/lib" 
+  LIBS = -lz -lopengl32 -lole32 -lcomctl32 -lversion 
+  LDFLAGS = -pipe -mwindows
+endif
+
+ifeq ($(CFG),Release)
+  OBJ_DIR = Release
+  OUTPUT_DIR = Release
+  TARGET = ideas.exe
+  C_INCLUDE_DIRS = -I"3d" -I"cpu" -I"cpu/arm7" -I"cpu/arm9" -I"ext" -I"fat" -I"gfx" -I"zip" -I"../zlib" -I"sound" -I"../ideas" -I"debug" -I"plugin/wifi" -I"../lzma/C/Archive/7z" -I"plugin/aud" -I"plugin" -I"7z" -I"../lzma/C" -I"../lzma/C/Compress/Lzma" -I"../lzma/C/Compress/Branch" -I"../Mingw/include" 
+  C_PREPROC = -D_WIN32_IE=0x400 -D_DEBUG -D_LZMA_OUT_READ 
+  CFLAGS = -pipe -mmmx -m32 -Wall -g0 -O3 -fno-rtti -fno-exceptions -c
+  RC_INCLUDE_DIRS = --include-dir "../Mingw/include" 
+  RC_PREPROC = --define _DEBUG 
+  RCFLAGS = 
+  LIB_DIRS = -L"../zlib" -L"../lzma/C/Archive/7z" -L"../Mingw/lib" 
+  LIBS = -lz -lopengl32 -lole32 -lcomctl32 -lversion -l7zwin
+  LDFLAGS = -pipe -s -mwindows
+endif
+
+ifeq ($(OS),Windows_NT)
+  NULL =
+else
+  NULL = nul
+endif
+
+SRC_OBJS = \
+  $(OBJ_DIR)/ConsolleDlg.o	\
+  $(OBJ_DIR)/KeyConfig.o	\
+  $(OBJ_DIR)/ToolDlg.o	\
+  $(OBJ_DIR)/audioplug.o	\
+  $(OBJ_DIR)/bios.o	\
+  $(OBJ_DIR)/bp.o	\
+  $(OBJ_DIR)/card.o	\
+  $(OBJ_DIR)/cpu.o	\
+  $(OBJ_DIR)/debug.o	\
+  $(OBJ_DIR)/dlcd.o	\
+  $(OBJ_DIR)/dma.o	\
+  $(OBJ_DIR)/dsmem.o	\
+  $(OBJ_DIR)/fstream.o	\
+  $(OBJ_DIR)/gpu.o	\
+  $(OBJ_DIR)/graphicsplug.o	\
+  $(OBJ_DIR)/ideas.o	\
+  $(OBJ_DIR)/inputtext.o	\
+  $(OBJ_DIR)/io.o	\
+  $(OBJ_DIR)/lapp.o	\
+  $(OBJ_DIR)/lcanvas.o	\
+  $(OBJ_DIR)/ldlg.o	\
+  $(OBJ_DIR)/lds.o	\
+  $(OBJ_DIR)/llist.o	\
+  $(OBJ_DIR)/lmenu.o	\
+  $(OBJ_DIR)/lopensavedlg.o	\
+  $(OBJ_DIR)/lregkey.o	\
+  $(OBJ_DIR)/lslist.o	\
+  $(OBJ_DIR)/lstring.o	\
+  $(OBJ_DIR)/lwnd.o	\
+  $(OBJ_DIR)/memview.o	\
+  $(OBJ_DIR)/plugin.o	\
+  $(OBJ_DIR)/pluginctn.o	\
+  $(OBJ_DIR)/pxi.o	\
+  $(OBJ_DIR)/savestate.o	\
+  $(OBJ_DIR)/spi.o	\
+  $(OBJ_DIR)/timers.o	\
+  $(OBJ_DIR)/ulcd.o	\
+  $(OBJ_DIR)/util.o	\
+  $(OBJ_DIR)/videoplug.o	\
+  $(OBJ_DIR)/3D.o	\
+  $(OBJ_DIR)/3dguid.o	\
+  $(OBJ_DIR)/math3.o	\
+  $(OBJ_DIR)/stack.o	\
+  $(OBJ_DIR)/cpu_0.o	\
+  $(OBJ_DIR)/syscnt.o	\
+  $(OBJ_DIR)/arm7.o	\
+  $(OBJ_DIR)/arm9.o	\
+  $(OBJ_DIR)/cpm.o	\
+  $(OBJ_DIR)/fw.o	\
+  $(OBJ_DIR)/rtc.o	\
+  $(OBJ_DIR)/touch.o	\
+  $(OBJ_DIR)/fat.o	\
+  $(OBJ_DIR)/lcd.o	\
+  $(OBJ_DIR)/mode4.o	\
+  $(OBJ_DIR)/mode6.o	\
+  $(OBJ_DIR)/modeTile.o	\
+  $(OBJ_DIR)/sprite.o	\
+  $(OBJ_DIR)/zipfile.o	\
+  $(OBJ_DIR)/capture.o	\
+  $(OBJ_DIR)/elf.o	\
+  $(OBJ_DIR)/cheats.o	\
+  $(OBJ_DIR)/ndsreader.o	\
+  $(OBJ_DIR)/license.o	\
+  $(OBJ_DIR)/wifiplugin.o	\
+  $(OBJ_DIR)/inspector.o	\
+  $(OBJ_DIR)/ioviewer.o	\
+  $(OBJ_DIR)/paletteviewer.o	\
+  $(OBJ_DIR)/spriteviewer.o	\
+  $(OBJ_DIR)/textureviewer.o	\
+  $(OBJ_DIR)/tileviewer.o	\
+  $(OBJ_DIR)/7zfile.o	\
+  $(OBJ_DIR)/lzari.o	\
+  $(OBJ_DIR)/language.o	\
+  $(OBJ_DIR)/dldiplugin.o	\
+  $(OBJ_DIR)/cbds.o	\
+  $(OBJ_DIR)/inputplug.o	\
+  $(OBJ_DIR)/math3sse.o
+  
+RSRC_OBJS = \
+  $(OBJ_DIR)/ideas_ex.res
+
+define build_target
+@echo Linking...
+@$(CC) -o "$(OUTPUT_DIR)\$(TARGET)" $(SRC_OBJS) $(RSRC_OBJS) $(LIB_DIRS) $(LIBS) $(LDFLAGS)
+endef
+
+define compile_resource
+@echo Compiling $<
+@$(WINDRES) $(RCFLAGS) $(RC_PREPROC) $(RC_INCLUDE_DIRS) -O COFF -i "$<" -o "$@"
+endef
+
+define compile_source
+@echo Compiling $<
+@$(CC) $(CFLAGS) $(C_PREPROC) $(C_INCLUDE_DIRS) -c "$<" -o "$@"
+endef
+
+define compile_asm
+@echo Compiling $<
+@$(ASM) -fwin32 -o $@ $<
+endef
+
+
+.PHONY: print_header directories
+
+$(TARGET): print_header directories $(RSRC_OBJS) $(SRC_OBJS)
+	$(build_target)
+
+.PHONY: clean cleanall
+
+cleanall:
+	@echo Deleting intermediate files for 'ideas - $(CFG)'
+	-@del $(OBJ_DIR)\*.o
+	-@del $(OBJ_DIR)\*.res
+	-@del "$(OUTPUT_DIR)\$(TARGET)"
+	-@rmdir "$(OUTPUT_DIR)"
+
+clean:
+	@echo Deleting intermediate files for 'ideas - $(CFG)'
+	-@del $(OBJ_DIR)\*.o
+	-@del $(OBJ_DIR)\*.res
+
+print_header:
+	@echo ----------Configuration: ideas - $(CFG)----------
+
+directories:
+	-@if not exist "$(OUTPUT_DIR)\$(NULL)" mkdir "$(OUTPUT_DIR)"
+	-@if not exist "$(OBJ_DIR)\$(NULL)" mkdir "$(OBJ_DIR)"
+
+$(OBJ_DIR)/ideas_ex.res: ideas_ex.rc	\
+resource.h
+	$(compile_resource)
+
+$(OBJ_DIR)/math3sse.o: 3d/math3sse.asm
+	$(compile_asm)
+
+$(OBJ_DIR)/ConsolleDlg.o: debug/ConsolleDlg.cpp	\
+debug/debug.h
+	$(compile_source)
+
+$(OBJ_DIR)/KeyConfig.o: KeyConfig.cpp	\
+ideastypes.h	\
+resource.h	\
+lds.h	\
+KeyConfig.h	\
+language.h
+	$(compile_source)
+
+$(OBJ_DIR)/ToolDlg.o: debug/ToolDlg.cpp	\
+debug/debug.h
+	$(compile_source)
+
+$(OBJ_DIR)/audioplug.o: audioplug.cpp	\
+audioplug.h	\
+pluginctn.h	\
+resource.h	\
+dsmem.h	\
+gpu.h	\
+io.h	\
+lds.h
+	$(compile_source)
+
+$(OBJ_DIR)/bios.o: bios.cpp	\
+ideastypes.h	\
+dsmem.h
+	$(compile_source)
+
+$(OBJ_DIR)/bp.o: debug/bp.cpp	\
+debug/bp.h	\
+debug/inputtext.h
+	$(compile_source)
+
+$(OBJ_DIR)/card.o: ext/card.cpp	\
+ext/dma.h
+	$(compile_source)
+
+$(OBJ_DIR)/cpu.o: cpu.cpp	\
+cpu.h
+	$(compile_source)
+
+$(OBJ_DIR)/debug.o: debug/debug.cpp	\
+debug/debug.h	\
+debug/inputtext.h	\
+debug/elf.h	\
+debug/inspector.h	\
+debug/mtxviewer.h	\
+debug/polyviewer.h
+	$(compile_source)
+
+$(OBJ_DIR)/dlcd.o: dlcd.cpp	\
+lds.h	\
+resource.h	\
+dsmem.h
+	$(compile_source)
+
+$(OBJ_DIR)/dma.o: ext/dma.cpp
+
+	$(compile_source)
+
+$(OBJ_DIR)/dsmem.o: dsmem.cpp	\
+dsmem.h	\
+fstream.h	\
+io.h	\
+lds.h	\
+bios7.h	\
+bios9.h	\
+util.h
+	$(compile_source)
+
+$(OBJ_DIR)/fstream.o: fstream.cpp	\
+fstream.h
+	$(compile_source)
+
+$(OBJ_DIR)/gpu.o: gpu.cpp	\
+lds.h	\
+gfx/modeTile.h	\
+gfx/mode4.h	\
+gfx/mode6.h
+	$(compile_source)
+
+$(OBJ_DIR)/graphicsplug.o: graphicsplug.cpp	\
+ideastypes.h	\
+graphicsplug.h	\
+pluginctn.h	\
+resource.h	\
+dsmem.h	\
+gpu.h	\
+io.h	\
+lds.h
+	$(compile_source)
+
+$(OBJ_DIR)/ideas.o: ideas.cpp	\
+ideastypes.h	\
+lds.h
+	$(compile_source)
+
+$(OBJ_DIR)/inputtext.o: debug/inputtext.cpp	\
+debug/inputtext.h
+	$(compile_source)
+
+$(OBJ_DIR)/io.o: io.cpp	\
+io.h	\
+lds.h	\
+util.h	\
+pluginctn.h
+	$(compile_source)
+
+$(OBJ_DIR)/lapp.o: lapp.cpp	\
+lapp.h	\
+lwnd.h	\
+lmenu.h
+	$(compile_source)
+
+$(OBJ_DIR)/lcanvas.o: lcanvas.cpp	\
+lcanvas.h	\
+lapp.h
+	$(compile_source)
+
+$(OBJ_DIR)/ldlg.o: ldlg.cpp	\
+ldlg.h	\
+lapp.h
+	$(compile_source)
+
+$(OBJ_DIR)/lds.o: lds.cpp	\
+lds.h	\
+resource.h	\
+util.h	\
+io.h	\
+lregkey.h	\
+ideastypes.h	\
+lstring.h	\
+fstream.h	\
+KeyConfig.h	\
+ndsreader.h	\
+arm7bin.h	\
+cheats.h	\
+license.h	\
+language.h	\
+lzari.h
+	$(compile_source)
+
+$(OBJ_DIR)/llist.o: llist.cpp	\
+ideastypes.h	\
+llist.h
+	$(compile_source)
+
+$(OBJ_DIR)/lmenu.o: lmenu.cpp	\
+lmenu.h	\
+lapp.h
+	$(compile_source)
+
+$(OBJ_DIR)/lopensavedlg.o: lopensavedlg.cpp	\
+lopensavedlg.h	\
+lapp.h
+	$(compile_source)
+
+$(OBJ_DIR)/lregkey.o: lregkey.cpp	\
+lregkey.h	\
+ideastypes.h	\
+lstring.h	\
+fstream.h	\
+lapp.h	\
+lds.h
+	$(compile_source)
+
+$(OBJ_DIR)/lslist.o: lslist.cpp	\
+ideastypes.h	\
+lslist.h	\
+lregkey.h	\
+lstring.h	\
+fstream.h
+	$(compile_source)
+
+$(OBJ_DIR)/lstring.o: lstring.cpp	\
+lstring.h
+	$(compile_source)
+
+$(OBJ_DIR)/lwnd.o: lwnd.cpp	\
+lwnd.h	\
+lapp.h	\
+lmenu.h	\
+lopensavedlg.h
+	$(compile_source)
+
+$(OBJ_DIR)/memview.o: debug/memview.cpp	\
+debug/memview.h	\
+debug/debug.h
+	$(compile_source)
+
+$(OBJ_DIR)/plugin.o: plugin.cpp	\
+ideastypes.h	\
+plugin.h	\
+dstype.h	\
+lstring.h	\
+llist.h	\
+plugin/pluginmain.h	\
+lregkey.h	\
+fstream.h	\
+pluginctn.h	\
+lds.h	\
+language.h
+	$(compile_source)
+
+$(OBJ_DIR)/pluginctn.o: pluginctn.cpp	\
+ideastypes.h	\
+pluginctn.h	\
+resource.h	\
+lds.h
+	$(compile_source)
+
+$(OBJ_DIR)/pxi.o: ext/pxi.cpp
+
+	$(compile_source)
+
+$(OBJ_DIR)/savestate.o: savestate.cpp	\
+savestate.h	\
+lstring.h	\
+cpu.h	\
+lds.h	\
+pluginctn.h
+	$(compile_source)
+
+$(OBJ_DIR)/spi.o: ext/spi.cpp	\
+ext/spi.h	\
+ext/touch.h	\
+ext/fw.h
+	$(compile_source)
+
+$(OBJ_DIR)/timers.o: ext/timers.cpp
+
+	$(compile_source)
+
+$(OBJ_DIR)/ulcd.o: ulcd.cpp	\
+gpu.h	\
+lds.h	\
+resource.h	\
+dsmem.h	\
+language.h	\
+cheats.h
+	$(compile_source)
+
+$(OBJ_DIR)/util.o: util.cpp	\
+ideastypes.h	\
+util.h	\
+lstring.h	\
+fstream.h	\
+lopensavedlg.h
+	$(compile_source)
+
+$(OBJ_DIR)/videoplug.o: videoplug.cpp	\
+videoplug.h	\
+resource.h	\
+dsmem.h	\
+gpu.h	\
+io.h	\
+lds.h
+	$(compile_source)
+
+$(OBJ_DIR)/3D.o: 3d/3D.cpp	\
+3d/3D.h	\
+3d/math3.h	\
+3d/3dguid.h
+	$(compile_source)
+
+$(OBJ_DIR)/3dguid.o: 3d/3dguid.cpp
+
+	$(compile_source)
+
+$(OBJ_DIR)/math3.o: 3d/math3.cpp	\
+3d/math3.h
+	$(compile_source)
+
+$(OBJ_DIR)/stack.o: 3d/stack.cpp	\
+3d/3D.h
+	$(compile_source)
+
+$(OBJ_DIR)/cpu_0.o: cpu/cpu_0.cpp	\
+cpu/cpu_0.h
+	$(compile_source)
+
+$(OBJ_DIR)/syscnt.o: cpu/syscnt.cpp	\
+cpu/syscnt.h
+	$(compile_source)
+
+$(OBJ_DIR)/arm7.o: cpu/arm7/arm7.cpp	\
+cpu/arm7/arm7.h
+	$(compile_source)
+
+$(OBJ_DIR)/arm9.o: cpu/arm9/arm9.cpp	\
+cpu/arm9/arm9.h
+	$(compile_source)
+
+$(OBJ_DIR)/cpm.o: ext/cpm.cpp	\
+ext/cpm.h
+	$(compile_source)
+
+$(OBJ_DIR)/fw.o: ext/fw.cpp	\
+ext/fw.h
+	$(compile_source)
+
+$(OBJ_DIR)/rtc.o: ext/rtc.cpp	\
+ext/rtc.h
+	$(compile_source)
+
+$(OBJ_DIR)/touch.o: ext/touch.cpp	\
+ext/touch.h	\
+ext/fw.h
+	$(compile_source)
+
+$(OBJ_DIR)/fat.o: fat/fat.cpp	\
+fat/fat.h
+	$(compile_source)
+
+$(OBJ_DIR)/lcd.o: gfx/lcd.cpp	\
+gfx/mode4.h	\
+gfx/modeTile.h
+	$(compile_source)
+
+$(OBJ_DIR)/mode4.o: gfx/mode4.cpp	\
+gfx/mode4.h
+	$(compile_source)
+
+$(OBJ_DIR)/mode6.o: gfx/mode6.cpp	\
+gfx/mode6.h
+	$(compile_source)
+
+$(OBJ_DIR)/modeTile.o: gfx/modeTile.cpp	\
+gfx/modeTile.h
+	$(compile_source)
+
+$(OBJ_DIR)/sprite.o: gfx/sprite.cpp
+
+	$(compile_source)
+
+$(OBJ_DIR)/zipfile.o: zip/zipfile.cpp
+
+	$(compile_source)
+
+$(OBJ_DIR)/capture.o: sound/capture.cpp	\
+sound/capture.h
+	$(compile_source)
+
+$(OBJ_DIR)/elf.o: debug/elf.cpp	\
+debug/elf.h
+	$(compile_source)
+
+$(OBJ_DIR)/cheats.o: cheats.cpp	\
+cheats.h	\
+lds.h	\
+util.h	\
+cbds.h	\
+language.h	\
+lvec.hpp
+	$(compile_source)
+
+$(OBJ_DIR)/ndsreader.o: ndsreader.cpp	\
+ndsreader.h	\
+lds.h
+	$(compile_source)
+
+$(OBJ_DIR)/license.o: license.cpp	\
+ideastypes.h	\
+license.h	\
+resource.h
+	$(compile_source)
+
+$(OBJ_DIR)/wifiplugin.o: wifiplugin.cpp	\
+wifiplugin.h	\
+lds.h	\
+io.h	\
+plugin/wifi/guid.h
+	$(compile_source)
+
+$(OBJ_DIR)/inspector.o: debug/inspector.cpp	\
+debug/inspector.h	\
+debug/inputtext.h
+	$(compile_source)
+
+$(OBJ_DIR)/ioviewer.o: debug/ioviewer.cpp	\
+debug/ioviewer.h
+	$(compile_source)
+
+$(OBJ_DIR)/paletteviewer.o: debug/paletteviewer.cpp	\
+debug/paletteviewer.h
+	$(compile_source)
+
+$(OBJ_DIR)/spriteviewer.o: debug/spriteviewer.cpp	\
+debug/spriteviewer.h
+	$(compile_source)
+
+$(OBJ_DIR)/textureviewer.o: debug/textureviewer.cpp	\
+debug/textureviewer.h
+	$(compile_source)
+
+$(OBJ_DIR)/tileviewer.o: debug/tileviewer.cpp	\
+debug/tileviewer.h
+	$(compile_source)
+
+$(OBJ_DIR)/7zfile.o: 7z/7zfile.cpp	\
+7z/7zfile.h
+	$(compile_source)
+
+$(OBJ_DIR)/lzari.o: lzari.cpp	\
+ideastypes.h	\
+lzari.h
+	$(compile_source)
+
+$(OBJ_DIR)/language.o: language.cpp	\
+language.h	\
+lregkey.h	\
+ideastypes.h	\
+lstring.h	\
+fstream.h
+	$(compile_source)
+
+$(OBJ_DIR)/dldiplugin.o: dldiplugin.cpp	\
+dldiplugin.h	\
+resource.h	\
+lds.h
+	$(compile_source)
+
+$(OBJ_DIR)/cbds.o: cbds.cpp	\
+cbds.h
+	$(compile_source)
+
+$(OBJ_DIR)/inputplug.o: inputplug.cpp	\
+inputplug.h	\
+lds.h
+	$(compile_source)
+
+$(OBJ_DIR)/sound.o: plugin/aud/sound.cpp	\
+plugin/aud/sound.h	\
+plugin/aud/LREGKEY.H
+	$(compile_source)
+

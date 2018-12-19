@@ -1,0 +1,301 @@
+# ---------------------------------------------------------------------------
+!if !$d(BCB)
+BCB = $(MAKEDIR)\..
+!endif
+
+# ---------------------------------------------------------------------------
+# IDE SECTION
+# ---------------------------------------------------------------------------
+# The following section of the project makefile is managed by the BCB IDE.
+# It is recommended to use the IDE to change any of the values in this
+# section.
+# ---------------------------------------------------------------------------
+
+VERSION = BCB.03
+# ---------------------------------------------------------------------------
+PROJECT = ideas.exe
+OBJFILES = ideas.obj cpu\arm9\arm9.obj gpu.obj cpu\arm7\arm7.obj cpu\syscnt.obj dsmem.obj \
+  lds.obj 3d\3D.obj gfx\modeTile.obj gfx\lcd.obj gfx\sprite.obj gfx\mode4.obj \
+  gfx\mode6.obj 3d\math3.obj 3d\3dguid.obj 3d\stack.obj bios.obj dlcd.obj \
+  ulcd.obj cpu.obj cpu\cpu_0.obj ext\timers.obj ext\card.obj ext\spi.obj \
+  ext\dma.obj ext\rtc.obj ext\touch.obj ext\cpm.obj ext\fw.obj ext\pxi.obj \
+  fstream.obj util.obj io.obj lwnd.obj llist.obj lslist.obj lregkey.obj \
+  lstring.obj lcanvas.obj plugin.obj pluginctn.obj videoplug.obj graphicsplug.obj \
+  audioplug.obj lapp.obj lmenu.obj lopensavedlg.obj ldlg.obj debug\ToolDlg.obj \
+  debug\ConsolleDlg.obj debug\bp.obj debug\memview.obj debug\debug.obj \
+  debug\inputtext.obj debug\spriteviewer.obj debug\textureviewer.obj \
+  debug\elf.obj KeyConfig.obj zip\zipfile.obj savestate.obj fat\fat.obj \
+  ndsreader.obj cheats.obj debug\paletteviewer.obj debug\ioviewer.obj \
+  wifiplugin.obj debug\inspector.obj debug\tileviewer.obj debug\mtxviewer.obj \
+  debug\polyviewer.obj license.obj language.obj cbds.obj inputplug.obj \
+  7z\7zfile.obj lzari.obj dldiplugin.obj 3d\gl_extension.obj guitar_grip.obj \
+  gba\gbabackup.obj ext\decrypt.obj rominfo.obj plugin\wifi\wifi.obj \
+  plugin\wifi\guid.obj plugin\mic\capture.obj plugin\mic\micguid.obj \
+  plugin\aud\sound.obj
+RESFILES = ideas_ex.res
+RESDEPEN = $(RESFILES)
+LIBFILES =
+LIBRARIES = VCL35.lib
+SPARELIBS = VCL35.lib
+PACKAGES = vclx35.bpi VCL35.bpi
+DEFFILE =
+# ---------------------------------------------------------------------------
+PATHCPP = .;cpu\arm9;cpu\arm7;cpu;3d;gfx;ext;debug;zip;fat;7z;gba;plugin\wifi;plugin\mic;plugin\aud
+PATHASM = .;
+PATHPAS = .;
+PATHRC = .;
+DEBUGLIBPATH = $(BCB)\lib\debug
+RELEASELIBPATH = $(BCB)\lib\release
+# ---------------------------------------------------------------------------
+CFLAG1 = -O2 -O -Os -OS -w- -Ve -x- -k- -vi -w-par -c -tW -X
+CFLAG2 = -D_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG \
+  -Iplugin\mic;gba;$(BCB)\include;plugin\input;plugin\aud;plugin\wifi;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;\lzma\C\Archive\7z;\lzma\C\Compress\Lzma;\lzma\C\Compress\Branch;\lzma\C;\borland\include
+CFLAG3 = -RT- -Tkh30000 -6 -wuse -wsig -w-hid
+PFLAGS = -D_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG \
+  -Uplugin\mic;gba;plugin;linux;7z;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;\borland\lib\psdk;\zlib;\lzma\C\Archive\7z;$(RELEASELIBPATH) \
+  -Iplugin\mic;gba;$(BCB)\include;plugin\input;plugin\aud;plugin\wifi;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;\lzma\C\Archive\7z;\lzma\C\Compress\Lzma;\lzma\C\Compress\Branch;\lzma\C;\borland\include \
+  -$L- -$D- -v -JPHN -M
+RFLAGS = -D_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG \
+  -iplugin\mic;gba;$(BCB)\include;plugin\input;plugin\aud;plugin\wifi;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;\lzma\C\Archive\7z;\lzma\C\Compress\Lzma;\lzma\C\Compress\Branch;\lzma\C;\borland\include
+AFLAGS = /iplugin\mic /igba /i$(BCB)\include /iplugin\input /iplugin\aud /iplugin\wifi \
+  /idebug /ifat /izip /itouch /icpm /isound /iext /i3d /icpu\arm9 /icpu\arm7 \
+  /icpu /igfx /i7z /i\zlib /iplugin /i\lzma\C\Archive\7z /i\lzma\C\Compress\Lzma \
+  /i\lzma\C\Compress\Branch /i\lzma\C /i\borland\include /d_NO_VCL /dSTRICT \
+  /d_LZMA_OUT_READ /d_DEBUG /mx /w2 /zd
+LFLAGS = -Lplugin\mic;gba;plugin;linux;7z;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;\borland\lib\psdk;\zlib;\lzma\C\Archive\7z;$(RELEASELIBPATH) \
+  -aa -Tpe -x -Gn -M
+IFLAGS =
+# ---------------------------------------------------------------------------
+ALLOBJ = c0w32.obj $(OBJFILES)
+ALLRES = $(RESFILES)
+ALLLIB = $(LIBFILES) import32.lib cw32mt.lib
+# ---------------------------------------------------------------------------
+!ifdef IDEOPTIONS
+
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1040
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=Executable (GUI)
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=30
+Item0=plugin\mic;gba;$(BCB)\include;plugin\input;plugin\aud;plugin\wifi;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;\lzma\C\Archive\7z;\lzma\C\Compress\Lzma;\lzma\C\Compress\Branch;\lzma\C;\borland\include
+Item1=gba;$(BCB)\include;plugin\input;plugin\aud;plugin\wifi;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;\lzma\C\Archive\7z;\lzma\C\Compress\Lzma;\lzma\C\Compress\Branch;\lzma\C;\borland\include
+Item2=gba;$(BCB)\include;plugin\input;plugin\aud;plugin\wifi;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;\lzma\C\Archive\7z;\lzma\C\Compress\Lzma;\lzma\C\Compress\Branch;\lzma\C;\borland\include\psdk
+Item3=c:\programmi\borland\cbuilder3\projects;gba;$(BCB)\include;plugin\input;plugin\aud;plugin\wifi;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;\lzma\C\Archive\7z;\lzma\C\Compress\Lzma;\lzma\C\Compress\Branch;\lzma\C
+Item4=gba;$(BCB)\include;plugin\input;plugin\aud;plugin\wifi;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;\lzma\C\Archive\7z;\lzma\C\Compress\Lzma;\lzma\C\Compress\Branch;\lzma\C
+Item5=gba;$(BCB)\include;plugin\input;plugin\aud;plugin\wifi;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;h:\lzma\C\Archive\7z;h:\lzma\C\Compress\Lzma;h:\lzma\C\Compress\Branch;h:\lzma\C
+Item6=gba;$(BCB)\include;plugin\input;plugin\aud;plugin\wifi;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;h:\lzma\C\Archive\7z;h:\lzma\C\Compress\Lzma;h:\lzma\C\Compress\Branch;F:\lzma\C
+Item7=gba;$(BCB)\include;plugin\input;plugin\aud;plugin\wifi;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;h:\lzma\C\Archive\7z;h:\lzma\C;h:\lzma\C\Compress\Lzma;h:\lzma\C\Compress\Branch
+Item8=gba;$(BCB)\include;plugin\input;plugin\aud;plugin\wifi;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;\lzma\C\Archive\7z;\lzma\C;\lzma\C\Compress\Lzma;\lzma\C\Compress\Branch
+Item9=gba;$(BCB)\include;plugin\input;plugin\aud;plugin\wifi;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;f:\lzma\C\Archive\7z;f:\lzma\C;f:\lzma\C\Compress\Lzma;f:\lzma\C\Compress\Branch
+Item10=$(BCB)\include;plugin\input;plugin\aud;plugin\wifi;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;f:\lzma\C\Archive\7z;f:\lzma\C;f:\lzma\C\Compress\Lzma;f:\lzma\C\Compress\Branch
+Item11=$(BCB)\include;plugin\paula;plugin\input;plugin\aud;plugin\wifi;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;f:\lzma\C\Archive\7z;f:\lzma\C;f:\lzma\C\Compress\Lzma;f:\lzma\C\Compress\Branch
+Item12=$(BCB)\include;plugin\paula;plugin\input;plugin\aud;plugin\wifi;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;linux;f:\lzma\C\Archive\7z;f:\lzma\C;f:\lzma\C\Compress\Lzma;f:\lzma\C\Compress\Branch
+Item13=$(BCB)\include;plugin\paula;plugin\input;plugin\aud;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;linux;f:\lzma\C\Archive\7z;f:\lzma\C;f:\lzma\C\Compress\Lzma;f:\lzma\C\Compress\Branch;plugin\wifi
+Item14=$(BCB)\include;plugin\paula;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;\zlib;plugin;linux;f:\lzma\C\Archive\7z;f:\lzma\C;f:\lzma\C\Compress\Lzma;f:\lzma\C\Compress\Branch
+Item15=plugin\paula;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;$(BCB)\include;\zlib;\borland\include;plugin;linux;f:\lzma\C\Archive\7z;f:\lzma\C;f:\lzma\C\Compress\Lzma;f:\lzma\C\Compress\Branch
+Item16=d:\programmi\borland\cbuilder3\projects;plugin\paula;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;$(BCB)\include;\zlib;\borland\include;plugin;linux;f:\lzma\C\Archive\7z;f:\lzma\C;f:\lzma\C\Compress\Lzma;f:\lzma\C\Compress\Branch
+Item17=plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;$(BCB)\include;\zlib;\borland\include;plugin;linux;f:\lzma\C\Archive\7z;f:\lzma\C;f:\lzma\C\Compress\Lzma;f:\lzma\C\Compress\Branch
+Item18=d:\programmi\borland\cbuilder3\projects;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;$(BCB)\include;\zlib;\borland\include;plugin;linux;f:\lzma\C\Archive\7z;f:\lzma\C;f:\lzma\C\Compress\Lzma;f:\lzma\C\Compress\Branch
+Item19=linux;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;$(BCB)\include;\zlib;\borland\include;plugin;f:\lzma\C\Archive\7z;f:\lzma\C;f:\lzma\C\Compress\Lzma;f:\lzma\C\Compress\Branch
+Item20=linux;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;$(BCB)\include;\zlib;\borland\include;plugin;E:\lzma\C\Archive\7z;E:\lzma\C;E:\lzma\C\Compress\Lzma;E:\lzma\C\Compress\Branch
+Item21=plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;$(BCB)\include;\zlib;\borland\include;plugin;E:\lzma\C\Archive\7z;E:\lzma\C;E:\lzma\C\Compress\Lzma;E:\lzma\C\Compress\Branch
+Item22=plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;7z;$(BCB)\include;\zlib;\borland\include;plugin;E:\lzma\C\Archive\7z;E:\lzma\C;E:\lzma\C\Compress\Lzma
+Item23=7z;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\include;\zlib;\borland\include;plugin;E:\lzma\C\Archive\7z;E:\lzma\C
+Item24=plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\include;\zlib;\borland\include;plugin
+Item25=plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\include;e:\zlib;e:\borland\include;plugin
+Item26=plugin\wifi;plugin\aud;debug;fat;zip;touch;cpm;sound;ext;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\include;e:\zlib;e:\borland\include;plugin
+Item27=plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\include;g:\zlib;g:\borland\include;plugin
+Item28=plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\include;d:\zlib;d:\borland\include;plugin
+Item29=plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\include;f:\zlib;f:\borland\include;plugin
+
+[HistoryLists\hlLibraryPath]
+Count=30
+Item0=plugin\mic;gba;plugin;linux;7z;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;\borland\lib\psdk;\zlib;\lzma\C\Archive\7z
+Item1=gba;plugin;linux;7z;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;\borland\lib\psdk;\zlib;\lzma\C\Archive\7z
+Item2=c:\programmi\borland\cbuilder3\projects;gba;plugin;linux;7z;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;\borland\lib\psdk;\zlib;\lzma\C\Archive\7z
+Item3=gba;plugin;linux;7z;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;\borland\lib\psdk;\zlib;f:\lzma\C\Archive\7z
+Item4=plugin;linux;7z;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;\borland\lib\psdk;\zlib;f:\lzma\C\Archive\7z
+Item5=plugin\paula;plugin;linux;7z;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;\borland\lib\psdk;\zlib;f:\lzma\C\Archive\7z
+Item6=d:\programmi\borland\cbuilder3\projects;plugin\paula;plugin;linux;7z;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;\borland\lib\psdk;\zlib;f:\lzma\C\Archive\7z
+Item7=linux;7z;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;\borland\lib\psdk;\zlib;f:\lzma\C\Archive\7z
+Item8=d:\programmi\borland\cbuilder3\projects;linux;7z;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;\borland\lib\psdk;\zlib;f:\lzma\C\Archive\7z
+Item9=linux;7z;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;\borland\lib\psdk;\zlib;E:\lzma\C\Archive\7z
+Item10=7z;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;\borland\lib\psdk;\zlib;E:\lzma\C\Archive\7z
+Item11=7z;plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;\borland\lib\psdk;\zlib
+Item12=plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;\borland\lib\psdk;\zlib
+Item13=plugin\input;plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;e:\borland\lib\psdk;e:\zlib
+Item14=plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;e:\borland\lib\psdk;e:\zlib
+Item15=plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;g:\borland\lib\psdk;g:\zlib
+Item16=plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;d:\borland\lib\psdk;d:\zlib
+Item17=plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;d:\zlib;d:\borland\lib\psdk
+Item18=plugin\wifi;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;f:\zlib;f:\borland\lib\psdk
+Item19=plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;d:\zlib;d:\borland\lib\psdk
+Item20=c:\programmi\borland\cbuilder3\projects;plugin\aud;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;d:\zlib;d:\borland\lib\psdk
+Item21=debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;d:\zlib;d:\borland\lib\psdk
+Item22=plugin\wifi;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;d:\zlib;d:\borland\lib\psdk
+Item23=plugin\d3d;c:\programmi\borland\cbuilder3\projects;plugin\wifi;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;d:\zlib;d:\borland\lib\psdk
+Item24=c:\programmi\borland\cbuilder3\projects;plugin\wifi;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;d:\zlib;d:\borland\lib\psdk
+Item25=plugin\wifi;c:\programmi\borland\cbuilder3\projects;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;d:\zlib;d:\borland\lib\psdk
+Item26=plugin\wifi;c:\programmi\borland\cbuilder3\projects;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;d:\zlib
+Item27=debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;d:\zlib
+Item28=c:\programmi\borland\cbuilder3\projects;debug;fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;d:\zlib
+Item29=fat;zip;ext;touch;cpm;sound;3d;cpu\arm9;cpu\arm7;cpu;gfx;$(BCB)\lib;d:\zlib
+
+[HistoryLists\hlConditionals]
+Count=30
+Item0=_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG
+Item1=_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG;_DEBPRO
+Item2=_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG;_DEBPRO;__USEWIFI
+Item3=_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG;_DEBUGPRO;__USEWIFI
+Item4=_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG;_DEBUGPRO
+Item5=_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG;GL_MULTICORES;_DEBPRO
+Item6=_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG;GL_MULTICORES
+Item7=_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG;_DEBPRO;GL_MULTICORES
+Item8=_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG;_DEBPRO2;_LICENSE;_DEBPRO3;_DEBPRO4;_DEBPRO5
+Item9=_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG;_DEBPRO2;_LICENSE;_DEBPRO3
+Item10=_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG;_DEBPRO;_LICENSE
+Item11=_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG;_DEBPRO;_AUDIOINTERNAL
+Item12=_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG;_DEBPRO2;_DEBPRO4;_DEBPRO5;_LICENSE
+Item13=_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG;_DEBPRO2;_DEBPRO4;_DEBPRO5
+Item14=_NO_VCL;STRICT;_LZMA_OUT_READ;_DEBUG;_DEBPRO2
+Item15=_NO_VCL;STRICT;_LZMA_OUT_READ
+Item16=_NO_VCL;_DEBUG;STRICT;_LZMA_OUT_READ
+Item17=_NO_VCL;_DEBUG;STRICT;_LZMA_OUT_READ;_DEBPRO;_MICAUDIOINTERNAL
+Item18=_NO_VCL;_DEBUG;STRICT;_LZMA_OUT_READ;_DEBPRO
+Item19=_NO_VCL;_DEBUG;STRICT;_LZMA_OUT_READ;_DEBPRO;_LICENSE
+Item20=_NO_VCL;_DEBUG;STRICT;_LZMA_OUT_READ;_LICENSE;_DEBPRO2;_DEBPRO5;_DEBPRO4
+Item21=_NO_VCL;_DEBUG;STRICT;_LZMA_OUT_READ;_LICENSE;_DEBPRO2;_DEBPRO5
+Item22=_NO_VCL;_DEBUG;STRICT;_LZMA_OUT_READ;_DEBPRO;_AUDIOINTERNAL
+Item23=_NO_VCL;_DEBUG;STRICT;_LZMA_OUT_READ;_DEBPRO2;_DEBPRO4;_DEBPRO5;_LICENSE
+Item24=_NO_VCL;_DEBUG;STRICT;_LZMA_OUT_READ;_DEBPRO2
+Item25=_NO_VCL;_DEBUG;STRICT;_LZMA_OUT_READ;_LINO
+Item26=_NO_VCL;_DEBUG;STRICT;_LZMA_OUT_READ;_DEBPRO;_LINO
+Item27=_NO_VCL;_DEBUG;STRICT;_LZMA_OUT_READ;_LINO;_DEBPRO
+Item28=_NO_VCL;_DEBUG;STRICT;_LZMA_OUT_READ;_LICENSE;_DEBPRO;_LINO
+Item29=_NO_VCL;_DEBUG;STRICT;_LZMA_OUT_READ;_DEBPRO;_LINO;_LICENSE
+
+[HistoryLists\hlHostApplication]
+Count=4
+Item0=C:\Documents and Settings\Lino\Desktop\NO$GBA.EXE
+Item1=C:\Documents and Settings\Administrator\Desktop\ideas.exe
+Item2=C:\WINDOWS\desktop\NO$GBA.EXE
+Item3=C:\WINDOWS\TEMP\NO$GBA.EXE
+
+[HistoryLists\hlRunParameters]
+Count=8
+Item0=D:\ds\palib\PAlibExamples\Wifi\HTTP\main7.elf\0D:\ds\palib\PAlibExamples\Wifi\HTTP\main.elf
+Item1=d:\ds\roms\0466_Nintednogs_Dalmatian_And_Friends_EUR_NDS-LGC.nds
+Item2=d:\ds\roms\0018_WarioWare_Touched_PROPER_EUR_NDS-WetNWild.nds
+Item3=C:\WINDOWS\Desktop\amplituds_v3\main.nds
+Item4=D:\ds\libnds\examples\Graphics\2D\ansi_console\main.nds
+Item5=C:\WINDOWS\Desktop\WWTBAFM\WWTBAFM\main.nds
+Item6=c:\windows\desktop\Blocks5.nds
+Item7=d:\ds\roms\AnotherCode.nds
+
+[Debugging]
+DebugSourceDirs=
+
+[Parameters]
+RunParams=
+HostApplication=C:\Documents and Settings\Lino\Desktop\NO$GBA.EXE
+
+!endif
+
+# ---------------------------------------------------------------------------
+# MAKE SECTION
+# ---------------------------------------------------------------------------
+# This section of the project file is not used by the BCB IDE.  It is for
+# the benefit of building from the command-line using the MAKE utility.
+# ---------------------------------------------------------------------------
+
+.autodepend
+# ---------------------------------------------------------------------------
+!if !$d(BCC32)
+BCC32 = bcc32
+!endif
+
+!if !$d(DCC32)
+DCC32 = dcc32
+!endif
+
+!if !$d(TASM32)
+TASM32 = tasm32
+!endif
+
+!if !$d(LINKER)
+LINKER = ilink32
+!endif
+
+!if !$d(BRCC32)
+BRCC32 = brcc32
+!endif
+# ---------------------------------------------------------------------------
+!if $d(PATHCPP)
+.PATH.CPP = $(PATHCPP)
+.PATH.C   = $(PATHCPP)
+!endif
+
+!if $d(PATHPAS)
+.PATH.PAS = $(PATHPAS)
+!endif
+
+!if $d(PATHASM)
+.PATH.ASM = $(PATHASM)
+!endif
+
+!if $d(PATHRC)
+.PATH.RC  = $(PATHRC)
+!endif
+# ---------------------------------------------------------------------------
+$(PROJECT): $(OBJFILES) $(RESDEPEN) $(DEFFILE)
+    $(BCB)\BIN\$(LINKER) @&&!
+    $(LFLAGS) +
+    $(ALLOBJ), +
+    $(PROJECT),, +
+    $(ALLLIB), +
+    $(DEFFILE), +
+    $(ALLRES)
+!
+# ---------------------------------------------------------------------------
+.pas.hpp:
+    $(BCB)\BIN\$(DCC32) $(PFLAGS) {$< }
+
+.pas.obj:
+    $(BCB)\BIN\$(DCC32) $(PFLAGS) {$< }
+
+.cpp.obj:
+    $(BCB)\BIN\$(BCC32) $(CFLAG1) $(CFLAG2) $(CFLAG3) -n$(@D) {$< }
+
+.c.obj:
+    $(BCB)\BIN\$(BCC32) $(CFLAG1) $(CFLAG2) $(CFLAG3) -n$(@D) {$< }
+
+.asm.obj:
+    $(BCB)\BIN\$(TASM32) $(AFLAGS) $<, $@
+
+.rc.res:
+    $(BCB)\BIN\$(BRCC32) $(RFLAGS) -fo$@ $<
+# ---------------------------------------------------------------------------

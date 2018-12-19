@@ -1,0 +1,180 @@
+20000DISPCNT		Display Control	00000007BG Mode	00000008BG0 2D/3D Selection	00000010Tile OBJ Mapping	00000020Bitmap OBJ 2D Dimension	00000040Bitmap OBJ Mapping	00000080Forced Blank	00000100Screen Display BG0	00000200Screen Display BG1	00000400Screen Display BG2	00000800Screen Display BG3	00001000Screen Display OBJ	00002000Window 0 Display Flag	00004000Window 1 Display Flag	00008000OBJ Window Display Flag	00030000Display Mode	000C0000VRAM block	00300000Tile OBJ 1D Boundary	00400000Bitmap OBJ 1D Boundary	00800000OBJ Processing during H-Blank	07000000Character Base	38000000Screen Base	40000000BG Extended Palettes	80000000OBJ Extended Palettes
+10004DISPSTAT		Interrupts and Status	0001V-Blank flag	0002H-Blank flag	0004V-Counter flag	0008V-Blank IRQ Enable	0010H-Blank IRQ Enable	0020V-Counter IRQ Enable	FF00V-Count Setting
+10006VCOUNT			Vertical Counter	01FFCurrent scanline
+10008BG0CNT			BG0 Control	0003Priority	003CChar Base	0040Mosaic	0080Use Palette	1F00Screen Base Block	C000Size
+1000ABG1CNT			BG1 Control	0003Priority	003CChar Base	0040Mosaic	0080Use Palette	1F00Screen Base Block	C000Size
+1000CBG2CNT			BG2 Control	0003Priority	003CChar Base	0040Mosaic	0080Use Palette	1F00Screen Base Block	C000Size
+1000EBG3CNT			BG3 Control	0003Priority	003CChar Base	0040Mosaic	0080Use Palette	1F00Screen Base Block	C000Size
+10010BG0HOFS		BG0 X-Offset	01FFOffset
+10012BG0VOFS		BG0 Y-Offset	01FFOffset
+10014BG1HOFS		BG1 X-Offset	01FFOffset
+10016BG1VOFS		BG1 Y-Offset	01FFOffset
+10018BG2HOFS		BG2 X-Offset	01FFOffset
+1001ABG2V0FS		BG2 Y-Offset	01FFOffset
+1001CBG3HOFS		BG3 X-Offset	01FFOffset
+1001EBG3VOFS		BG3 Y-Offset	01FFOffset
+10020BG2PA			BG2 Rotation/Scaling Parameter A	00FFFractional portion	7F00Integer portion	8000Sign
+10022BG2PB			BG2 Rotation/Scaling Parameter B	00FFFractional portion	7F00Integer portion	8000Sign
+10024BG2PC			BG2 Rotation/Scaling Parameter C	00FFFractional portion	7F00Integer portion	8000Sign
+10026BG2PD			BG2 Rotation/Scaling Parameter D	00FFFractional portion	7F00Integer portion	8000Sign
+20028BG2X			BG2 Reference Point X-Coordinate	000000FFFractional portion	07FFFF00Integer portion	08000000Sign
+2002EBG2Y			BG2 Reference Point Y-Coordinate	000000FFFractional portion	07FFFF00Integer portion	08000000Sign
+10030BG3PA			BG3 Rotation/Scaling Parameter A	00FFFractional portion	7F00Integer portion	8000Sign
+10032BG3PB			BG3 Rotation/Scaling Parameter B	00FFFractional portion	7F00Integer portion	8000Sign
+10034BG3PC			BG3 Rotation/Scaling Parameter C	00FFFractional portion	7F00Integer portion	8000Sign
+10036BG3PD			BG3 Rotation/Scaling Parameter D	00FFFractional portion	7F00Integer portion	8000Sign
+20038BG3X			BG3 Reference Point X-Coordinate	000000FFFractional portion	07FFFF00Integer portion	08000000Sign
+2003CBG3Y			BG3 Reference Point Y-Coordinate	000000FFFractional portion	07FFFF00Integer portion	08000000Sign
+10040WIN0H			Window 0 Horizontal Dimensions	00FFRightmost coordinate of window	FF00Leftmost coordinate of window
+10042WIN1H			Window 1 Horizontal Dimensions	00FFRightmost coordinate of window	FF00Leftmost coordinate of window
+10044WIN0V			Window 0 Vertical Dimensions	00FFBottom-most coordinate of window	FF00Top-most coordinate of window
+10046WIN1V			Window 1 Vertical Dimensions	00FFBottom-most coordinate of window	FF00Top-most coordinate of window
+10048WININ			Control of Inside of Windows	000FWindow 0 BG0-BG3 Enable Bits	0010Window 0 OBJ Enable Bit	0020Window 0 Color Special Effect	0F00Window 1 BG0-BG3 Enable Bits	1000Window 1 OBJ Enable Bit	2000Window 1 Color Special Effect
+1004AWINOUT			Control of Outside of Windows & Inside of OBJ Window	000FOutside BG0-BG3 Enable Bits	0010Outside OBJ Enable Bit	0020Outside Color Special Effect	0F00OBJ Window BG0-BG3 Enable Bits	1000OBJ Window OBJ Enable Bit	2000OBJ Window Color Special Effect
+1004CMOSAIC			Mosaic Size	000FBG Mosaic H-Size	00F0BG Mosaic V-Size	0F00OBJ Mosaic H-Size	F000OBJ Mosaic V-Size
+10050BLDMOD			Color Special Effects Selection	0001BG0 1st Target Pixel	0002BG1 1st Target Pixel	0004BG2 1st Target Pixel	0008BG3 1st Target Pixel	0010OBJ 1st Target Pixel	0020BD 1st Target Pixel	00C0Color Special Effect	0100BG0 2nd Target Pixel	0200BG1 2nd Target Pixel	0400BG2 2nd Target Pixel	0800BG3 2nd Target Pixel	1000OBJ 2nd Target Pixel	2000BD 2nd Target Pixel
+10052COLEV			Alpha Blending Coefficients	001FEVA Coefficient	1F00EVB Coefficient
+10054COLEY			Brightness (Fade-In/Out) Coefficient	001FEVY Coefficient
+10060DISP3DCNT		3D Display Control register	0001Texture Mapping	0002Polygon Shading	0004Alpha Test	0008Alpha Blending	0010Anti aliasing	0020Edge marking	0040Fog Mode	0080Fog Master Enable	0F00Fog Shift	1000Color Buffer RDLINES Underflow	2000Polygon/Vertex RAM Overflow	4000Rear Plane Mode
+20064DISPCAPCNT		Display Capture Control Register	0000001FEVA	00001F00EVB	00030000VRAM Write Block	000C0000VRAM Write Offset	00300000Capture Size	01000000Source A	02000000Source B	0C000000VRAM Read Offset	60000000Capture Source	80000000Capture Enable
+1006CMASTER_BRIGHT	Master Brightness Up/Down	001FFactor used for 6bit R,G,B Intensities	C000Mode
+200B0DMA0SAD		DMA 0 Source Address	0FFFFFFFSource Address
+200B4DMA0DAD		DMA 0 Destination Address	0FFFFFFFDestination Address
+200B8DMA0CNT		DMA 0 Word Count	001FFFFFCount	00600000Dest.Addr.Control	01800000Src.Addr.Control	02000000Repeat	04000000Transfer Type	38000000Start	40000000IRQ Enable	80000000DMA Enable
+200BCDMA1SAD		DMA 1 Source Address	0FFFFFFFSource Address
+200C0DMA1DAD		DMA 1 Destination Address	0FFFFFFFDestination Address
+200C4DMA1CNT		DMA 1 Word Count	001FFFFFCount	00600000Dest.Addr.Control	01800000Src.Addr.Control	02000000Repeat	04000000Transfer Type	38000000Start	40000000IRQ Enable	80000000DMA Enable
+200C8DMA2SAD		DMA 2 Source Address	0FFFFFFFSource Address
+200CCDMA2DAD		DMA 2 Destination Address	0FFFFFFFDestination Address
+200D0DMA2CNT		DMA 2 Word Count	001FFFFFCount	00600000Dest.Addr.Control	01800000Src.Addr.Control	02000000Repeat	04000000Transfer Type	38000000Start	40000000IRQ Enable	80000000DMA Enable
+200D4DMA3SAD		DMA 3 Source Address	0FFFFFFFSource Address
+200D8DMA3DAD		DMA 3 Destination Address	0FFFFFFFDestination Address
+200DCDMA3CNT		DMA 3 Word Count	001FFFFFCount	00600000Dest.Addr.Control	01800000Src.Addr.Control	02000000Repeat	04000000Transfer Type	38000000Start	40000000IRQ Enable	80000000DMA Enable
+200E0DMA0FILL		DMA 0 Filldata	FFFFFFFFFilldata
+200E4DMA1FILL		DMA 1 Filldata	FFFFFFFFFilldata
+200E8DMA2FILL		DMA 2 Filldata	FFFFFFFFFilldata
+200ECDMA3FILL		DMA 3 Filldata	FFFFFFFFFilldata
+10100TM0D			Timer 0 Counter/Reload	FFFFTimer Counter
+10102TM0CNT			Timer 0 Control	0003Prescaler Selection	0004Count-up Timing	0040Timer IRQ Enable	0080Timer Start/Stop
+10104TM1D			Timer 1 Counter/Reload	FFFFTimer Counter
+10106TM1CNT			Timer 1 Control	0003Prescaler Selection	0004Count-up Timing	0040Timer IRQ Enable	0080Timer Start/Stop
+10108TM2D			Timer 2 Counter/Reload	FFFFTimer Counter
+1010ATM2CNT			Timer 2 Control	0003Prescaler Selection	0004Count-up Timing	0040Timer IRQ Enable	0080Timer Start/Stop
+1010CTM3D			Timer 3 Counter/Reload	FFFFTimer Counter
+1010ETM3CNT			Timer 3 Control	0003Prescaler Selection	0004Count-up Timing	0040Timer IRQ Enable	0080Timer Start/Stop
+10130KEY			Key Status	0001Button A	0002Button B	0004Select	0008Start	0010Right	0020Left	0040Up	0080Down	0100Button R	0200Button L
+10132P1CNT			Key Interrupt Control	0001Button A	0002Button B	0004Select	0008Start	0010Right	0020Left	0040Up	0080Down	0100Button R	0200Button L	4000IRQ Enable Flag	8000IRQ Condition
+20180IPCSYNC	IPC Synchronize Register	0000000FData input from IPCSYNC	00000F00Data output to IPCSYNC	00002000Send IRQ to remote CPU	00004000Enable IRQ from remote CPU
+20184IPCFIFOCNT	IPC Fifo Control Register	00000001Send Fifo Empty Status	00000002Send Fifo Full Status	00000004Send Fifo Empty IRQ	00000008Send Fifo Clear	00000100Receive Fifo Empty	00000200Receive Fifo Full	00000400Receive Fifo Not Empty IRQ	00004000Error, Read Empty/Send Full	00008000Enable Send/Receive Fifo
+20188IPCFIFOSEND	IPC Send Fifo	FFFFFFFFSend Fifo Data
+201A4ROMCTRL	Gamecard Bus ROMCTRL	00001FFFKEY lenght part1	00002000KEY Encrypt data	00004000SE	00008000KEY2 Apply Seed	003F0000KEY1 Lenght Part 2	00400000KEY2 Encrypt Command	00800000Data Word Status	07000000Data Block Size	08000000Transfer CLK rate	10000000 Secure Area Mode	20000000RESB	40000000WR	80000000 Block Start/Status
+001A840001A8	Gamecar Bus 8 Bytes Command Out	FF1st Command Byte
+001A940001A9	Gamecar Bus 8 Bytes Command Out	FF2nd Command Byte
+001AA40001AA	Gamecar Bus 8 Bytes Command Out	FF3rd Command Byte
+001AB40001AB	Gamecar Bus 8 Bytes Command Out	FF4th Command Byte
+001AC40001AC	Gamecar Bus 8 Bytes Command Out	FF5th Command Byte
+001AD40001AD	Gamecar Bus 8 Bytes Command Out	FF6th Command Byte
+001AE40001AE	Gamecar Bus 8 Bytes Command Out	FF7th Command Byte
+001AF40001AF	Gamecar Bus 8 Bytes Command Out	FF8th Command Byte
+201B040001B0	Encryption Seed 0	FFFFFFFFLower 32Bits
+201B440001B4	Encryption Seed 1	FFFFFFFFLower 32Bits
+101B840001B8	Encryption Seed 0	FFFFUpper 7Bits
+101BA40001BA	Encryption Seed 1	FFFFUpper 7Bits
+10204EXMEMCNT	External Memory Control	000332-pin GBA Slot SRAM Access Time	000C32-pin GBA Slot ROM 1st Access Time	001032-pin GBA Slot 2nd Access Time	006032-pin GBA Slot PHI-pin out	008032-pin GBA Slot Access Rights	080017-pin NDS Slot Access Rights	4000Main Memory Interface Mode Switch	8000Main Memory Access Priority
+10208IME			Interrupt Master Enable Register	0001Disable all interrupts
+20210IE				Interrupt Enable Register	00000001LCD V-Blank	00000002LCD H-Blank	00000004LCD V-Counter Match	00000008Timer 0 Overflow	00000010Timer 1 Overflow	00000020Timer 2 Overflow	00000040Timer 3 Overflow	00000100DMA 0	00000200DMA 1	00000400DMA 2	00000800DMA 3	00001000Keypad	00002000Game Pak	00010000IPC Sync	00020000IPC Send FIFO Empty	00040000IPC Recv FIFO Not Empty	00080000Game Card Data Transfer	00100000Game Card IREQ_MC	00200000Geometry Command FIFO
+20214IF				Interrupt Request Flags / IRQ Acknowledge	00000001LCD V-Blank	00000002LCD H-Blank	00000004LCD V-Counter Match	00000008Timer 0 Overflow	00000010Timer 1 Overflow	00000020Timer 2 Overflow	00000040Timer 3 Overflow	00000100DMA 0	00000200DMA 1	00000400DMA 2	00000800DMA 3	00001000Keypad	00002000Game Pak	00010000IPC Sync	00020000IPC Send FIFO Empty	00040000IPC Recv FIFO Not Empty	00080000Game Card Data Transfer	00100000Game Card IREQ_MC	00200000Geometry Command FIFO
+00240VRAMCNT_A 		VRAM-A (128K) Bank Control	07VRAM MST	18VRAM Offset	80VRAM Enable
+00241VRAMCNT_B 		VRAM-B (128K) Bank Control	07VRAM MST	18VRAM Offset	80VRAM Enable
+00242VRAMCNT_C 		VRAM-C (128K) Bank Control	07VRAM MST	18VRAM Offset	80VRAM Enable
+00243VRAMCNT_D 		VRAM-D (128K) Bank Control	07VRAM MST	18VRAM Offset	80VRAM Enable
+00244VRAMCNT_E 		VRAM-E (64K) Bank Control	07VRAM MST	18VRAM Offset	80VRAM Enable
+00245VRAMCNT_F 		VRAM-F (16K) Bank Control	07VRAM MST	18VRAM Offset	80VRAM Enable
+00246VRAMCNT_G 		VRAM-G (16K) Bank Control	07VRAM MST	18VRAM Offset	80VRAM Enable
+00248VRAMCNT_H 		VRAM-H (32K) Bank Control	07VRAM MST	18VRAM Offset	80VRAM Enable
+00249VRAMCNT_I 		VRAM-I (16K) Bank Control	07VRAM MST	18VRAM Offset	80VRAM Enable
+10280DIVCNT	Division Control 	0003Division Mode	4000Division by zero	8000Busy
+102B0SQRTCNT	Square Root Control	0001Mode	8000Busy
+00300POSTFLG		Post Boot Flag	01Post Boot Flag	02Bit1
+10304POWCNT1	Graphics Power Control	0001Enable Flag for both LCDs	00022D Graphics Engine A	00043D Rendering Engine	0008 3D Geometry Engine	02002D Graphics Engine B	8000Display Swap
+00340ALPHA TEST REF	Alpha Test Comparision Value	1FAlpha Test Comparision Value
+20350CLEAR_COLOR	Clear Color Attribute Register	0000001FRed	000003E0Green	00007C00Blue	00008000Fog	001F0000Alpha	3F000000Clear Polygon ID
+10354CLEAR_DEPTH	Clear Depth Register	7FFFClear Depth
+20358FOG_COLOR	Fog Color	0000001Fred	000003E0Green	00007C00Blue	001F0000Alpha
+1035CFOG_OFFSET	Fog Offset	7FFFFog Offset
+20400GXFIFO	Geometry Command FIFO	000000FFFirst  Packed Command	0000FF00Second Packed Command	00FF0000Third  Packed Command	FF000000Fourth Packed Command
+00440MTX_MODE	Set Matrix Mode	03Matrix Mode
+00444MTX_PUSH	Push Current Matrix on Stack	00
+00454MTX_IDENTITY	Load Unit Matrix to Current Matrix	00
+00448MTX_POP	Pop Current Matrix from Stack	3FStack Offset
+0044CMTX_STORE	Store Current Matrix on Stack	1FStack Address
+00450MTX_RESTORE	Restore Current Matrix from Stack	1FStack Address
+20458MTX_LOAD_4x4	Load 4x4 Matrix to Current Matrix	FFFFFFFFValue
+2045CMTX_LOAD_4x3	Load 4x3 matrix to Current Matrix	FFFFFFFFValue
+20460MTX_MULT_4x4	Multiply Current Matrix by 4x4 Matrix	FFFFFFFFValue
+20464MTX_MULT_4x3	Multiply Current Matrix by 4x3 Matrix	FFFFFFFFValue
+20468MTX_MULT_3x3	Multiply Current Matrix by 3x3 Matrix	FFFFFFFFValue
+2046CMTX_SCALE	Multiply Current Matrix by Scale Matrix	FFFFFFFFValue
+20470MTX_TRANS	Multiply Current Matrix by Translation Matrix	FFFFFFFFValue
+10480COLOR	Directly Set Vertex Color	001FRed	03E0Green	7C00Blue
+20484NORMAL	Set Normal Vector	000003FFX-Coordinate	000FFC00Y-Coordinate	3FF00000Z-Coordinate
+20488TEXCOORD	Set Texture Coordinates	0000FFFFS-Coordinate	FFFF0000T-Coordinate
+2048CVTX_16	Set Vertex XYZ Coordinates	0000FFFFX-Coordinate	FFFF0000Y-Coordinate
+20490VTX_10	Set Vertex XYZ Coordinates	000003FFX-Coordinate	000FFC00Y-Coordinate	3FF00000Z-Coordinate
+20494VTX_XY	Set Vertex XY Coordinates	0000FFFFX-Coordinate	FFFF0000Y-Coordinate
+20498VTX_XZ	Set Vertex XZ Coordinates	0000FFFFX-Coordinate	FFFF0000Z-Coordinate
+2049CVTX_YZ	Set Vertex YZ Coordinates	0000FFFFY-Coordinate	FFFF0000Z-Coordinate
+204A0VTX_DIFF	Set Relative Vertex Coordinates	000003FFX-Difference	000FFC00Y-Difference	3FF00000Z-Difference
+204A4POLYGON_ATTR	Set Polygon Attributes	0000000FLight 0-3 Enable Flags	00000030Polygon Mode	00000040Polygon Back Surface	00000080Polygon Front Surface	00000800Depth value for Translucent Polygons	00001000Far plane intersecting Polygons	000020001 Dot polygons behind DISP_1DOT_DEPTH	00004000Depth Test, Draw Pixels with Depth	00008000Fog Enable	001F0000Alpha	3F000000Polygon ID
+204A8TEXIMAGE_PARAM	Set Texture Parameters	0000FFFFTexture VRAM Offset	00010000Repeat in S Direction	00020000Repeat in T Direction	00040000Flip in S Direction	00080000Flip in T Direction	00700000Texture S-Size	03800000Texture T-Size	1C000000Texture Format	20000000Color 0 Transparent	C0000000Texture Coordinates Transformation Mode
+104ACPLTT_BASE	Set Texture Palette Base Address	1FFFPalette Base Address
+204C0DIF_AMB	MaterialColor0 - Diffuse/Ambient Reflect.	0000001FDiffuse Reflection Red	000003E0Diffuse Reflection Green	00007C00Diffuse Reflection Blue	00008000Set Vertex Color	001F0000Ambient Reflection Red	03E00000Ambient Reflection Green	7C000000Ambient Reflection Blue
+204C4SPE_EMI	MaterialColor1 - Specular Ref. & Emission	0000001FSpecular Reflection Red	000003E0Specular Reflection Green	00007C00Specular Reflection Blue	00008000Specular Reflection Shininess Table	001F0000Emission Red	03E00000Emission Green	7C000000Emission Blue
+204C8LIGHT_VECTOR	Set Light's Directional Vector	000003FFDirectional Vector's X component	000FFC00Directional Vector's Y component	3FF00000Directional Vector's Z component
+204CCLIGHT_COLOR	Set Light Color	0000001FRed	000003E0Green	00007C00Blue	C0000000Light Number
+00500BEGIN_VTXS	Start of Vertex List	03Primitive Type
+00504END_VTXS	End of Vertex List
+00540SWAP_BUFFERS	Swap Rendering Engine Buffer	01Translucent polygon Y-sorting	02Depth Buffering
+20580VIEWPORT	Set Viewport	000000FFScreen/BG= Coordinate X1	0000FF00Screen/BG0 Coordinate Y1	00FF0000Screen/BG0 Coordinate X2	FF000000 Screen/BG0 Coordinate Y2
+005C0BOX_TEST	Test if Cuboid Sits inside View Volume
+005C4POS_TEST	Set Position Coordinates for Test
+205C8VEC_TEST	Set Directional Vector for Test	000003FFX-Component	000FFC00Y-Component	3FF00000Z-Component
+20600GXSTAT	Geometry Engine Status Register	00000001BoxTest,PositionTest,VectorTest Busy	00000002BoxTest Result	00001F00Position & Vector Matrix Stack Level	00002000Projection Matrix Stack Level	00004000Matrix Stack Busy	00008000Matrix Stack Overflow/Underflow Error	00FF0000Number of 40bit-entries in Command FIFO	01000000Command FIFO Less Than Half Full	02000000Command FIFO Empty	04000000Geometry Engine Busy	C0000000Command FIFO IRQ
+10610DISP 1DOT DEPTH	1-Dot Polygon Display Boundary Depth	7FFFW Coordinate
+21000DISPCNT-SUB		Display Control B	00000007BG Mode	00000010Tile OBJ Mapping	00000020Bitmap OBJ 2D Dimension	00000040Bitmap OBJ Mapping	00000080Forced Blank	00000100Screen Display BG0	00000200Screen Display BG1	00000400Screen Display BG2	00000800Screen Display BG3	00001000Screen Display OBJ	00002000Window 0 Display Flag	00004000Window 1 Display Flag	00008000OBJ Window Display Flag	00030000Display Mode	00300000Tile OBJ 1D Boundary	00800000OBJ Processing during H-Blank	40000000BG Extended Palettes	80000000OBJ Extended Palettes
+11008BG0CNT-SUB			BG0 Control	0003Priority	003CChar Base	0040Mosaic	0080Use Palette	1F00Screen Base Block	C000Size
+1100ABG1CNT-SUB			BG1 Control	0003Priority	003CChar Base	0040Mosaic	0080Use Palette	1F00Screen Base Block	C000Size
+1100CBG2CNT-SUB			BG2 Control	0003Priority	003CChar Base	0040Mosaic	0080Use Palette	1F00Screen Base Block	C000Size
+1100EBG3CNT-SUB			BG3 Control	0003Priority	003CChar Base	0040Mosaic	0080Use Palette	1F00Screen Base Block	C000Size
+11010BG0HOFS-SUB		BG0 X-Offset	01FFOffset
+11012BG0VOFS-SUB		BG0 Y-Offset	01FFOffset
+11014BG1HOFS-SUB		BG1 X-Offset	01FFOffset
+11016BG1VOFS-SUB		BG1 Y-Offset	01FFOffset
+11018BG2HOFS-SUB		BG2 X-Offset	01FFOffset
+1101ABG2V0FS-SUB		BG2 Y-Offset	01FFOffset
+1101CBG3HOFS-SUB		BG3 X-Offset	01FFOffset
+1101EBG3VOFS-SUB		BG3 Y-Offset	01FFOffset
+11020BG2PA-SUB			BG2 Rotation/Scaling Parameter A	00FFFractional portion	7F00Integer portion	8000Sign
+11022BG2PB-SUB			BG2 Rotation/Scaling Parameter B	00FFFractional portion	7F00Integer portion	8000Sign
+11024BG2PC-SUB			BG2 Rotation/Scaling Parameter C	00FFFractional portion	7F00Integer portion	8000Sign
+11026BG2PD-SUB			BG2 Rotation/Scaling Parameter D	00FFFractional portion	7F00Integer portion	8000Sign
+21028BG2X-SUB			BG2 Reference Point X-Coordinate	000000FFFractional portion	07FFFF00Integer portion	08000000Sign
+2102EBG2Y-SUB			BG2 Reference Point Y-Coordinate	000000FFFractional portion	07FFFF00Integer portion	08000000Sign
+11030BG3PA-SUB			BG3 Rotation/Scaling Parameter A	00FFFractional portion	7F00Integer portion	8000Sign
+11032BG3PB-SUB			BG3 Rotation/Scaling Parameter B	00FFFractional portion	7F00Integer portion	8000Sign
+11034BG3PC-SUB			BG3 Rotation/Scaling Parameter C	00FFFractional portion	7F00Integer portion	8000Sign
+11036BG3PD-SUB			BG3 Rotation/Scaling Parameter D	00FFFractional portion	7F00Integer portion	8000Sign
+21038BG3X-SUB			BG3 Reference Point X-Coordinate	000000FFFractional portion	07FFFF00Integer portion	08000000Sign
+2103CBG3Y-SUB			BG3 Reference Point Y-Coordinate	000000FFFractional portion	07FFFF00Integer portion	08000000Sign
+11040WIN0H-SUB			Window 0 Horizontal Dimensions	00FFRightmost coordinate of window	FF00Leftmost coordinate of window
+11042WIN1H-SUB			Window 1 Horizontal Dimensions	00FFRightmost coordinate of window	FF00Leftmost coordinate of window
+11044WIN0V-SUB			Window 0 Vertical Dimensions	00FFBottom-most coordinate of window	FF00Top-most coordinate of window
+11046WIN1V-SUB			Window 1 Vertical Dimensions	00FFBottom-most coordinate of window	FF00Top-most coordinate of window
+11048WININ-SUB			Control of Inside of Windows	000FWindow 0 BG0-BG3 Enable Bits	0010Window 0 OBJ Enable Bit	0020Window 0 Color Special Effect	0F00Window 1 BG0-BG3 Enable Bits	1000Window 1 OBJ Enable Bit	2000Window 1 Color Special Effect
+1104AWINOUT-SUB			Control of Outside of Windows & Inside of OBJ Window	000FOutside BG0-BG3 Enable Bits	0010Outside OBJ Enable Bit	0020Outside Color Special Effect	0F00OBJ Window BG0-BG3 Enable Bits	1000OBJ Window OBJ Enable Bit	2000OBJ Window Color Special Effect
+1104CMOSAIC-SUB			Mosaic Size	000FBG Mosaic H-Size	00F0BG Mosaic V-Size	0F00OBJ Mosaic H-Size	F000OBJ Mosaic V-Size
+11050BLDMOD-SUB			Color Special Effects Selection	0001BG0 1st Target Pixel	0002BG1 1st Target Pixel	0004BG2 1st Target Pixel	0008BG3 1st Target Pixel	0010OBJ 1st Target Pixel	0020BD 1st Target Pixel	00C0Color Special Effect	0100BG0 2nd Target Pixel	0200BG1 2nd Target Pixel	0400BG2 2nd Target Pixel	0800BG3 2nd Target Pixel	1000OBJ 2nd Target Pixel	2000BD 2nd Target Pixel
+11052COLEV-SUB			Alpha Blending Coefficients	001FEVA Coefficient	1F00EVB Coefficient
+11054COLEY-SUB			Brightness (Fade-In/Out) Coefficient	001FEVY Coefficient
+1106CMASTER_BRIGHT-SUB	Master Brightness Up/Down	001FFactor used for 6bit R,G,B Intensities	C000Mode
+604100000IPCFIFORECV	IPC Receive Fifo	FFFFFFFFReceive Fifo Data
